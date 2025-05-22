@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using NorthWindWebApi.DataAccessLayer;
 using WebApiNorthwind.DataTransferObject;
@@ -13,11 +14,13 @@ public class ProductController : ControllerBase
  
     NorthwindDataContext _context;
     private readonly ILogger<ProductController> _logger;
-
-    public ProductController(ILogger<ProductController> logger , NorthwindDataContext dataContext)
+    IMapper _mapper;
+    
+    public ProductController(ILogger<ProductController> logger , NorthwindDataContext dataContext , IMapper mapper)
     {
         _context = dataContext;
         _logger = logger;
+        _mapper = mapper;
     }
 
     /// <summary>
@@ -27,7 +30,8 @@ public class ProductController : ControllerBase
     public async Task<ActionResult<List<ProductDto>>> GetProducts()
     {
         var products = _context.Products.ToList();
-        return Ok(new List<ProductDto>());
+        var dtos = _mapper.Map<List<ProductDto>>(products);
+        return Ok(dtos);
     }
  
 }

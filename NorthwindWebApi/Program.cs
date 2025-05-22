@@ -2,13 +2,14 @@ using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using NorthWindWebApi.DataAccessLayer;
+using WebApiNorthwind.Mappers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddDbContext<NorthwindDataContext>((dbBuilder) => dbBuilder.UseNpgsql("Host=localhost;Port=5432;Database=northwind;Username=postgres;Password=postgres"));
-
+builder.Services.AddAutoMapper(typeof(DefaultMapper).Assembly);
 if (builder.Environment.IsDevelopment())
 {
     builder.Services.AddEndpointsApiExplorer();  
@@ -37,6 +38,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
     app.MapOpenApi();
 }
+
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
