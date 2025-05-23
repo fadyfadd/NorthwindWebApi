@@ -30,6 +30,20 @@ if (builder.Environment.IsDevelopment())
 }
 
 
+builder.Services.AddCors(options => {
+    
+    options.AddDefaultPolicy(policyBuilder =>
+    {
+        policyBuilder
+            .WithOrigins("http://localhost:3000")
+            .WithHeaders("Authorization", "origin", "accept", "content-type")
+            .WithMethods("GET", "POST", "PUT", "DELETE")
+            ;
+    });
+ 
+});
+
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -41,6 +55,8 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseHttpsRedirection();
+app.UseCors();
 app.UseAuthorization();
 app.MapControllers();
+
 app.Run();
