@@ -1,3 +1,4 @@
+using System.IdentityModel.Tokens.Jwt;
 using System.Net.Mime;
 using System.Reflection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -9,6 +10,7 @@ using Microsoft.OpenApi.Models;
 using NorthwindWebApi.Configuration;
 using NorthWindWebApi.DataAccessLayer;
 using NorthwindWebApi.Security;
+using NorthwindWebApi.Services;
 using WebApiNorthwind.Mappers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,12 +24,14 @@ builder.Services.Configure<AppConfiguration>(builder.Configuration.GetSection("A
 builder.Services.AddDbContext<NorthwindDataContext>((dbBuilder) =>
     dbBuilder.UseNpgsql(appConfig.DatabaseConfiguration.ConnectionString));
 
+builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<UserService>();
+    
 builder.Services.AddAutoMapper(typeof(DefaultMapper).Assembly);
 
 if (builder.Environment.IsDevelopment())
 {
     builder.Services.AddEndpointsApiExplorer();
-   
 
     builder.Services.AddSwaggerGen(options =>
     {
@@ -91,6 +95,9 @@ builder.Services.AddAuthentication(options =>
         };
     });
 
+builder.Services.AddAuthorization(options => { 
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -103,6 +110,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 

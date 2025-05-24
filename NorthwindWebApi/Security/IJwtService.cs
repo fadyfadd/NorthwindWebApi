@@ -5,6 +5,6 @@ namespace NorthwindWebApi.Security;
 
 public interface IJwtService
 {
-    UserSecurityProfileDto CreateJwtToken(ApplicationUser user);
-    ClaimsPrincipal? GetPrincipalFromJwtToken(string? token);
+    UserProfileDto CreateJwtToken(ApplicationUser user , Role userRole);
+    ClaimsPrincipal? GetPrincipalFromJwtToken(string? token );
 }
