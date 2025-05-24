@@ -1,6 +1,8 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NorthWindWebApi.DataAccessLayer;
+using NorthwindWebApi.Security;
 using WebApiNorthwind.DataTransferObject;
 
 namespace NorthWindWebApi.Controllers;
