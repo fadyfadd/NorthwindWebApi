@@ -23,7 +23,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="DataAccessLayer\Repositories\" />
       <Folder Include="Exceptions\" />
       <Folder Include="Middleware\" />
     </ItemGroup>
