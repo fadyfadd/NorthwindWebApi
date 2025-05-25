@@ -16,7 +16,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 var appConfig = builder.Configuration.GetSection("AppConfiguration").Get<AppConfiguration>();
 
-builder.Services.AddControllers().AddJsonOptions((options)=>{  //options.JsonSerializerOptions.Converters.Add(new LocalDateTimeConverter());
+builder.Services.AddControllers().AddJsonOptions((options) =>
+{
+    //options.JsonSerializerOptions.Converters.Add(new LocalDateTimeConverter());
 });
 
 builder.Services.AddOpenApi();
@@ -29,7 +31,7 @@ builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<ExceptionMiddleware>();
 
-    
+
 builder.Services.AddAutoMapper(typeof(DefaultMapper).Assembly);
 
 if (builder.Environment.IsDevelopment())
@@ -88,14 +90,15 @@ builder.Services.AddAuthentication(options =>
         options.TokenValidationParameters = new TokenValidationParameters()
         {
             ValidateLifetime = true,
+            ValidateAudience = false,
+            ValidateIssuer = false,
             ValidateIssuerSigningKey = true,
             IssuerSigningKey =
                 new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(appConfig.JwtConfiguration.Key))
         };
     });
 
-builder.Services.AddAuthorization(options => { 
-});
+builder.Services.AddAuthorization(options => { });
 
 var app = builder.Build();
 

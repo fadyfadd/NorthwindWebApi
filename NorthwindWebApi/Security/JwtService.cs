@@ -20,10 +20,10 @@ public class JwtService : IJwtService
 
         Claim[] claims = new Claim[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
+            new Claim(JwtRegisteredClaimNames.Email, user.Email),
             new Claim(ClaimTypes.Role, userRole),
-            new Claim(ClaimTypes.Email, user.Email)
+            
         };
 
         SymmetricSecurityKey securityKey =
@@ -31,14 +31,16 @@ public class JwtService : IJwtService
 
         SigningCredentials signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
-        JwtSecurityToken tokenGenerator = new JwtSecurityToken(
-            issuer: null, audience: null,
-            claims,
-            expires: expiration,
-            signingCredentials: signingCredentials
-        );
+        SecurityTokenDescriptor securityTokenDescriptor = new SecurityTokenDescriptor()
+        {
+            Subject = new ClaimsIdentity(claims),
+            Expires = expiration,
+            SigningCredentials = signingCredentials,
+            
+        };
 
-        JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+        var tokenHandler = new JwtSecurityTokenHandler();
+        var token = tokenHandler.CreateToken(securityTokenDescriptor);
 
         var userProfileDto = new UserProfileDto()
         {
@@ -46,12 +48,12 @@ public class JwtService : IJwtService
             UserName = user.UserName,
             Email = user.Email,
             UserRole = userRole,
-            Token = tokenHandler.WriteToken(tokenGenerator),
+            Token = tokenHandler.WriteToken(token),
             TokenExpirationInMin = _appConfig.JwtConfiguration.ExpirationInMinutes,
             RefreshTokenExpirationInMin = _appConfig.JwtConfiguration.RefreshTokenExpirationInMinutes,
             RefreshToken = GenerateRefreshToken(),
         };
-
+        GetPrincipalFromJwtToken(userProfileDto.Token);
         return userProfileDto;
     }
 
@@ -93,8 +95,9 @@ public class JwtService : IJwtService
             {
                 throw new NorthwindWebApiException(ErrorMessages.AuthenticationError,  ErrorType.AuthenticationError.ToString());
             }
-
+            
             return principal;
+            
         }
         catch (Exception ex)
         {

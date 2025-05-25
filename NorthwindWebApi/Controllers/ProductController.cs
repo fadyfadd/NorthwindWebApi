@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NorthWindWebApi.DataAccessLayer;
 using WebApiNorthwind.DataTransferObject;
@@ -23,6 +24,7 @@ public class ProductController : ControllerBase
         _mapper = mapper;
     }
 
+    [Authorize(Roles = "StandardUser")]   
     /// <summary>
     /// Get all Products
     /// </summary>

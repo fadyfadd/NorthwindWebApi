@@ -34,8 +34,6 @@ public class UserService
     {
         var user  = await _userManager.FindByNameAsync(loginDto.UserName);
         var role = await _userManager.GetRolesAsync(user);
-        
-        //var result = await _userManager.CheckPasswordAsync(user1 , loginDto.Password);
         return await _jwtService.CreateJwtToken(user, role[0]);
     }
     
