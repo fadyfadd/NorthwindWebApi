@@ -8,7 +8,7 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
 {
     public void Configure(EntityTypeBuilder<Product> builder)
     {
-        builder.ToTable("products" , t=>t.ExcludeFromMigrations());
+        builder.ToTable("products");
         builder.HasKey(p => p.ProductId);
         builder.Property((p => p.ProductId)).HasColumnName("product_id");
         builder.Property(p => p.ProductName).HasColumnName("product_name");
