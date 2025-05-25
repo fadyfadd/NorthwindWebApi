@@ -1,5 +1,3 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Net.Mime;
 using System.Reflection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -9,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using NorthwindWebApi.Configuration;
 using NorthWindWebApi.DataAccessLayer;
+using NorthwindWebApi.Middleware;
 using NorthwindWebApi.Security;
 using NorthwindWebApi.Services;
 using WebApiNorthwind.Mappers;
@@ -17,7 +16,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 var appConfig = builder.Configuration.GetSection("AppConfiguration").Get<AppConfiguration>();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions((options)=>{  //options.JsonSerializerOptions.Converters.Add(new LocalDateTimeConverter());
+});
+
 builder.Services.AddOpenApi();
 builder.Services.Configure<AppConfiguration>(builder.Configuration.GetSection("AppConfiguration"));
 
@@ -26,6 +27,8 @@ builder.Services.AddDbContext<NorthwindDataContext>((dbBuilder) =>
 
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<ExceptionMiddleware>();
+
     
 builder.Services.AddAutoMapper(typeof(DefaultMapper).Assembly);
 
@@ -84,10 +87,6 @@ builder.Services.AddAuthentication(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters()
         {
-            ValidateAudience = true,
-            ValidAudience = appConfig.JwtConfiguration.Audience,
-            ValidateIssuer = true,
-            ValidIssuer = appConfig.JwtConfiguration.Issuer,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
             IssuerSigningKey =
@@ -112,6 +111,7 @@ app.UseHttpsRedirection();
 app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseMiddleware<ExceptionMiddleware>();
 app.MapControllers();
 
 app.Run();

@@ -29,7 +29,7 @@ public class ProductController : ControllerBase
     /// Get all Products
     /// </summary>
     [HttpGet("All")]
-    public async Task<ActionResult<List<ProductDto>>> GetProducts()
+    public async Task<ActionResult<List<ProductDto>>> GetProductsAsync()
     {
         var products = _context.Products.ToList();
         var dtos = _mapper.Map<List<ProductDto>>(products);

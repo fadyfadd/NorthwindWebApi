@@ -8,9 +8,10 @@ public class UserProfileDto : BaseDto
     public String? UserName { get; set; } = string.Empty;
     public string? Email { get; set; } = string.Empty;
     public string? Token { get; set; } = string.Empty;
-    public DateTime TokenExpiration { get; set; }
+    public Int32 TokenExpirationInMin { get; set; }
     public string? RefreshToken { get; set; } = string.Empty;
-    public DateTime? RefreshTokenExpirationDateTime { get; set; }
-    public Role UserRole { get; set; }
+    
+    public Int32 RefreshTokenExpirationInMin { get; set; }
+    public String UserRole { get; set; }
 }
  

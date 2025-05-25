@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using NorthwindWebApi.Configuration;
-using NorthwindWebApi.Services;
+using NorthwindWebApi.Exceptions;
 using WebApiNorthwind.DataTransferObject;
 
 namespace NorthwindWebApi.Security;
@@ -14,19 +14,17 @@ public class JwtService : IJwtService
 {
     private AppConfiguration _appConfig;
 
-    public UserProfileDto CreateJwtToken(ApplicationUser user, Role userRole)
+    public async Task<UserProfileDto> CreateJwtToken(ApplicationUser user, String userRole)
     {
         DateTime expiration = DateTime.Now.AddMinutes(_appConfig.JwtConfiguration.ExpirationInMinutes);
 
         Claim[] claims = new Claim[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+            new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
-            new Claim(ClaimTypes.NameIdentifier, user.Email),
+            new Claim(ClaimTypes.Role, userRole),
             new Claim(ClaimTypes.Email, user.Email)
         };
-
 
         SymmetricSecurityKey securityKey =
             new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appConfig.JwtConfiguration.Key));
@@ -34,8 +32,7 @@ public class JwtService : IJwtService
         SigningCredentials signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
         JwtSecurityToken tokenGenerator = new JwtSecurityToken(
-            _appConfig.JwtConfiguration.Issuer,
-            _appConfig.JwtConfiguration.Audience,
+            issuer: null, audience: null,
             claims,
             expires: expiration,
             signingCredentials: signingCredentials
@@ -50,7 +47,8 @@ public class JwtService : IJwtService
             Email = user.Email,
             UserRole = userRole,
             Token = tokenHandler.WriteToken(tokenGenerator),
-            RefreshTokenExpirationDateTime = expiration,
+            TokenExpirationInMin = _appConfig.JwtConfiguration.ExpirationInMinutes,
+            RefreshTokenExpirationInMin = _appConfig.JwtConfiguration.RefreshTokenExpirationInMinutes,
             RefreshToken = GenerateRefreshToken(),
         };
 
@@ -70,33 +68,37 @@ public class JwtService : IJwtService
         return Convert.ToBase64String(bytes);
     }
 
-    public ClaimsPrincipal? GetPrincipalFromJwtToken(string? token)
+    public async Task<ClaimsPrincipal> GetPrincipalFromJwtToken(string? token)
     {
-        var tokenValidationParameters = new TokenValidationParameters()
+        try
         {
-            ValidateAudience = true,
-            ValidAudience = _appConfig.JwtConfiguration.Audience,
-            ValidateIssuer = true,
-            ValidIssuer = _appConfig.JwtConfiguration.Issuer,
+            var tokenValidationParameters = new TokenValidationParameters()
+            {
+                ValidateAudience = false,
+                ValidateIssuer = false,
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appConfig.JwtConfiguration.Key)),
+                ValidateLifetime = false
+            };
 
-            ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appConfig.JwtConfiguration.Key)),
+            JwtSecurityTokenHandler jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
 
-            ValidateLifetime = false //should be false
-        };
+            ClaimsPrincipal principal =
+                jwtSecurityTokenHandler.ValidateToken(token, tokenValidationParameters,
+                    out SecurityToken securityToken);
 
-        JwtSecurityTokenHandler jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
+            if (securityToken is not JwtSecurityToken jwtSecurityToken ||
+                !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256,
+                    StringComparison.InvariantCultureIgnoreCase))
+            {
+                throw new NorthwindWebApiException(ErrorMessages.AuthenticationError,  ErrorType.AuthenticationError.ToString());
+            }
 
-        ClaimsPrincipal principal =
-            jwtSecurityTokenHandler.ValidateToken(token, tokenValidationParameters, out SecurityToken securityToken);
-
-        if (securityToken is not JwtSecurityToken jwtSecurityToken ||
-            !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256,
-                StringComparison.InvariantCultureIgnoreCase))
-        {
-            throw new SecurityTokenException("Invalid token");
+            return principal;
         }
-
-        return principal;
+        catch (Exception ex)
+        {
+            throw new NorthwindWebApiException(ErrorMessages.AuthenticationError,  ErrorType.AuthenticationError.ToString(), null , ex);
+        }
     }
 }
