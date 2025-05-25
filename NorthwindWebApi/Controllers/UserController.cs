@@ -20,7 +20,6 @@ public class UserController : ControllerBase
     {
          await userService.CreateUserAsync(createUserDto);
          return Ok();
-
     }
     
     [HttpPost("CreateRole")]
@@ -28,7 +27,6 @@ public class UserController : ControllerBase
     {
         await userService.CreateRoleAsync(roleName);
         return Ok();
-
     }
     
     [HttpPost("AssingRoleToUser")]
