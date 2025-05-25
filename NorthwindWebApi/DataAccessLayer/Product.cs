@@ -4,7 +4,7 @@ namespace NorthWindWebApi.DataAccessLayer;
 
 public class Product : BaseEntity
 {
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+   
     public Int32? ProductId { set; get; }
     public String ProductName { set; get; }
     public Int32? SupplierId { set; get; }
