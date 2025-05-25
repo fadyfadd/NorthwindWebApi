@@ -4,5 +4,5 @@ namespace NorthwindWebApi.Security;
 
 public class ApplicationRole: IdentityRole<Guid>
 {
-
+       
 }
