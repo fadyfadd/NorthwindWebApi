@@ -22,10 +22,11 @@ public class ProductController : ControllerBase
         _mapper = mapper;
     }
 
-    [Authorize(Roles = "StandardUser")]   
+   
     /// <summary>
     /// Get all Products
     /// </summary>
+    [Authorize(Roles = "StandardUser")]   
     [HttpGet("All")]
     public async Task<ActionResult<List<ProductDto>>> GetProductsAsync()
     {
