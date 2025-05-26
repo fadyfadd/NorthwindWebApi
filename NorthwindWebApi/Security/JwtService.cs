@@ -53,7 +53,7 @@ public class JwtService : IJwtService
             RefreshTokenExpirationInMin = _appConfig.JwtConfiguration.RefreshTokenExpirationInMinutes,
             RefreshToken = GenerateRefreshToken(),
         };
-        GetPrincipalFromJwtToken(userProfileDto.Token);
+        
         return userProfileDto;
     }
 

@@ -1,4 +1,5 @@
 using AutoMapper;
+using NorthwindWebApi.Security;
 using NorthWindWebApi.DataAccessLayer;
 using WebApiNorthwind.DataTransferObject;
 
@@ -8,6 +9,6 @@ public class DefaultMapper : Profile
 {
     public DefaultMapper()
     {
-        CreateMap<Product, ProductDto>().ReverseMap();
+        CreateMap<Product, ProductDto>().ReverseMap();       
     }
 }
