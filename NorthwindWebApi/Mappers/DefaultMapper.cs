@@ -1,7 +1,6 @@
 using AutoMapper;
 using NorthwindWebApi.DataAccessLayer;
 using NorthwindWebApi.DataTransferObject;
-using NorthwindWebApi.Security;
 using NorthWindWebApi.DataAccessLayer;
 using WebApiNorthwind.DataTransferObject;
 

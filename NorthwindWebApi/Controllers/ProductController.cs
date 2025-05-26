@@ -1,6 +1,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NorthwindWebApi.Services;
 using NorthWindWebApi.DataAccessLayer;
 using WebApiNorthwind.DataTransferObject;
 
@@ -11,15 +12,16 @@ namespace NorthWindWebApi.Controllers;
 public class ProductController : ControllerBase
 {
  
-    NorthwindDataContext _context;
+ 
     private readonly ILogger<ProductController> _logger;
+    private ProductService _productService;
     IMapper _mapper;
     
-    public ProductController(ILogger<ProductController> logger , NorthwindDataContext dataContext , IMapper mapper)
-    {
-        _context = dataContext;
+    public ProductController(ILogger<ProductController> logger , NorthwindDataContext dataContext , IMapper mapper , ProductService productService)
+    { 
         _logger = logger;
         _mapper = mapper;
+        _productService = productService;
     }
 
    
@@ -29,11 +31,8 @@ public class ProductController : ControllerBase
     //[Authorize(Roles = "StandardUser")]   
     [HttpGet("All")]
     public async Task<ActionResult<List<ProductDto>>> GetProductsAsync()
-    {
-        var products = _context.Products.ToList();
-        var suppliers = _context.Suppliers.ToList();
-
-        var dtos = _mapper.Map<List<ProductDto>>(products);
+    {      
+        var dtos = _productService.GetAllProducts();     
         return Ok(dtos);
     }
  
