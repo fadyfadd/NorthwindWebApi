@@ -21,5 +21,7 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
         builder.Property(p => p.ReorderLevel).HasColumnName("reorder_level");
         builder.Property(p => p.QuantityPerUnit).HasColumnName("quantity_per_unit");
         builder.Property(p => p.Discontinued).HasColumnName("discontinued");
+
+        builder.HasOne((p) => p.Supplier).WithMany(s => s.Products).HasForeignKey(p => p.SupplierId).HasPrincipalKey((s) => s.SupplierId);
     }
 }

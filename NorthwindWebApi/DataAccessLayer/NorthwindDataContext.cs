@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using NorthWindWebApi.Configuration;
 using NorthwindWebApi.Security;
+using NorthwindWebApi.DataAccessLayer.Configuration;
+using NorthwindWebApi.DataAccessLayer;
 
 
 namespace NorthWindWebApi.DataAccessLayer;
@@ -10,6 +12,7 @@ public class NorthwindDataContext : IdentityDbContext<ApplicationUser , Applicat
 {
     
     public DbSet<Product> Products { get; set; }
+    public DbSet<Supplier> Suppliers { set; get; }
     
     public NorthwindDataContext(DbContextOptions options) : base(options)
     {
@@ -20,6 +23,7 @@ public class NorthwindDataContext : IdentityDbContext<ApplicationUser , Applicat
     {
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfiguration(new ProductConfiguration());
+        modelBuilder.ApplyConfiguration(new SupplierConfiguration());
       
     }
 }

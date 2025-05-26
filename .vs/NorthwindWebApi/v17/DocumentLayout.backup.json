@@ -3,12 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|c:\\users\\ffaddoul\\dev-environment\\northwindwebapi\\northwindwebapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|solutionrelative:northwindwebapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|c:\\users\\ffaddoul\\dev-environment\\northwindwebapi\\northwindwebapi\\mappers\\defaultmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|solutionrelative:northwindwebapi\\mappers\\defaultmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|c:\\users\\ffaddoul\\dev-environment\\northwindwebapi\\northwindwebapi\\datatransferobject\\supplierdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|solutionrelative:northwindwebapi\\datatransferobject\\supplierdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|c:\\users\\ffaddoul\\dev-environment\\northwindwebapi\\northwindwebapi\\dataaccesslayer\\supplier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|solutionrelative:northwindwebapi\\dataaccesslayer\\supplier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|c:\\users\\ffaddoul\\dev-environment\\northwindwebapi\\northwindwebapi\\dataaccesslayer\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|solutionrelative:northwindwebapi\\dataaccesslayer\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|c:\\users\\ffaddoul\\dev-environment\\northwindwebapi\\northwindwebapi\\datatransferobject\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|solutionrelative:northwindwebapi\\datatransferobject\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|c:\\users\\ffaddoul\\dev-environment\\northwindwebapi\\northwindwebapi\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|solutionrelative:northwindwebapi\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|c:\\users\\ffaddoul\\dev-environment\\northwindwebapi\\northwindwebapi\\dataaccesslayer\\configuration\\supplierconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|solutionrelative:northwindwebapi\\dataaccesslayer\\configuration\\supplierconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|c:\\users\\ffaddoul\\dev-environment\\northwindwebapi\\northwindwebapi\\dataaccesslayer\\configuration\\productconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|solutionrelative:northwindwebapi\\dataaccesslayer\\configuration\\productconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|c:\\users\\ffaddoul\\dev-environment\\northwindwebapi\\northwindwebapi\\dataaccesslayer\\northwinddatacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|solutionrelative:northwindwebapi\\dataaccesslayer\\northwinddatacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|c:\\users\\ffaddoul\\dev-environment\\northwindwebapi\\northwindwebapi\\datatransferobject\\errordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|solutionrelative:northwindwebapi\\datatransferobject\\errordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|c:\\users\\ffaddoul\\dev-environment\\northwindwebapi\\northwindwebapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|solutionrelative:northwindwebapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|c:\\users\\ffaddoul\\dev-environment\\northwindwebapi\\northwindwebapi\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|c:\\users\\ffaddoul\\dev-environment\\northwindwebapi\\northwindwebapi\\security\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|solutionrelative:northwindwebapi\\security\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|c:\\users\\ffaddoul\\dev-environment\\northwindwebapi\\northwindwebapi\\dataaccesslayer\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0B88ADBA-82F2-49C0-B1DF-F0529A253C6A}|NorthwindWebApi\\NorthwindWebApi.csproj|solutionrelative:northwindwebapi\\dataaccesslayer\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,17 +66,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\DataAccessLayer\\Product.cs",
               "RelativeDocumentMoniker": "NorthwindWebApi\\DataAccessLayer\\Product.cs",
               "ToolTip": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\DataAccessLayer\\Product.cs",
               "RelativeToolTip": "NorthwindWebApi\\DataAccessLayer\\Product.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-25T20:32:18.721Z",
               "IsPinned": true,
@@ -56,7 +88,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "ProductDto.cs",
+              "DocumentMoniker": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\DataTransferObject\\ProductDto.cs",
+              "RelativeDocumentMoniker": "NorthwindWebApi\\DataTransferObject\\ProductDto.cs",
+              "ToolTip": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\DataTransferObject\\ProductDto.cs",
+              "RelativeToolTip": "NorthwindWebApi\\DataTransferObject\\ProductDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T13:20:33.083Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SupplierDto.cs",
+              "DocumentMoniker": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\DataTransferObject\\SupplierDto.cs",
+              "RelativeDocumentMoniker": "NorthwindWebApi\\DataTransferObject\\SupplierDto.cs",
+              "ToolTip": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\DataTransferObject\\SupplierDto.cs",
+              "RelativeToolTip": "NorthwindWebApi\\DataTransferObject\\SupplierDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T13:18:35.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DefaultMapper.cs",
+              "DocumentMoniker": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\Mappers\\DefaultMapper.cs",
+              "RelativeDocumentMoniker": "NorthwindWebApi\\Mappers\\DefaultMapper.cs",
+              "ToolTip": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\Mappers\\DefaultMapper.cs",
+              "RelativeToolTip": "NorthwindWebApi\\Mappers\\DefaultMapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T13:17:45.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "ErrorMessages.cs",
               "DocumentMoniker": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\ErrorMessages.cs",
               "RelativeDocumentMoniker": "NorthwindWebApi\\ErrorMessages.cs",
@@ -69,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "NorthwindWebApi\\Services\\UserService.cs",
@@ -82,7 +153,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 13,
               "Title": "Role.cs",
               "DocumentMoniker": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\Security\\Role.cs",
               "RelativeDocumentMoniker": "NorthwindWebApi\\Security\\Role.cs",
@@ -95,26 +166,91 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "NorthwindWebApi\\Controllers\\ProductController.cs",
               "ToolTip": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\Controllers\\ProductController.cs",
               "RelativeToolTip": "NorthwindWebApi\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAmwBMAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-26T12:00:50.479Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
+              "Title": "NorthwindDataContext.cs",
+              "DocumentMoniker": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\DataAccessLayer\\NorthwindDataContext.cs",
+              "RelativeDocumentMoniker": "NorthwindWebApi\\DataAccessLayer\\NorthwindDataContext.cs",
+              "ToolTip": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\DataAccessLayer\\NorthwindDataContext.cs",
+              "RelativeToolTip": "NorthwindWebApi\\DataAccessLayer\\NorthwindDataContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T12:50:46.686Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Supplier.cs",
+              "DocumentMoniker": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\DataAccessLayer\\Supplier.cs",
+              "RelativeDocumentMoniker": "NorthwindWebApi\\DataAccessLayer\\Supplier.cs",
+              "ToolTip": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\DataAccessLayer\\Supplier.cs",
+              "RelativeToolTip": "NorthwindWebApi\\DataAccessLayer\\Supplier.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T12:30:49.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProductConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\DataAccessLayer\\Configuration\\ProductConfiguration.cs",
+              "RelativeDocumentMoniker": "NorthwindWebApi\\DataAccessLayer\\Configuration\\ProductConfiguration.cs",
+              "ToolTip": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\DataAccessLayer\\Configuration\\ProductConfiguration.cs",
+              "RelativeToolTip": "NorthwindWebApi\\DataAccessLayer\\Configuration\\ProductConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T12:39:12.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SupplierConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\DataAccessLayer\\Configuration\\SupplierConfiguration.cs",
+              "RelativeDocumentMoniker": "NorthwindWebApi\\DataAccessLayer\\Configuration\\SupplierConfiguration.cs",
+              "ToolTip": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\DataAccessLayer\\Configuration\\SupplierConfiguration.cs",
+              "RelativeToolTip": "NorthwindWebApi\\DataAccessLayer\\Configuration\\SupplierConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T12:38:37.712Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ErrorDto.cs",
+              "DocumentMoniker": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\DataTransferObject\\ErrorDto.cs",
+              "RelativeDocumentMoniker": "NorthwindWebApi\\DataTransferObject\\ErrorDto.cs",
+              "ToolTip": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\DataTransferObject\\ErrorDto.cs",
+              "RelativeToolTip": "NorthwindWebApi\\DataTransferObject\\ErrorDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T12:30:16.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "NorthwindWebApi\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\ffaddoul\\Dev-Environment\\NorthwindWebApi\\NorthwindWebApi\\Controllers\\UserController.cs",
               "RelativeToolTip": "NorthwindWebApi\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAYwCIAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAgwBgAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-26T12:00:10.857Z",
               "EditorCaption": ""

@@ -1,7 +1,7 @@
 using System.Net;
 using System.Text.Json;
-using NorthWindWebApi.DataAccessLayer;
 using NorthwindWebApi.Exceptions;
+using NorthwindWebApi.DataTransferObject;
 
 namespace NorthwindWebApi.Middleware;
 

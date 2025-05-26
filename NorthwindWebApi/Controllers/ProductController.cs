@@ -26,11 +26,13 @@ public class ProductController : ControllerBase
     /// <summary>
     /// Get all Products
     /// </summary>
-    [Authorize(Roles = "StandardUser")]   
+    //[Authorize(Roles = "StandardUser")]   
     [HttpGet("All")]
     public async Task<ActionResult<List<ProductDto>>> GetProductsAsync()
     {
         var products = _context.Products.ToList();
+        var suppliers = _context.Suppliers.ToList();
+
         var dtos = _mapper.Map<List<ProductDto>>(products);
         return Ok(dtos);
     }
