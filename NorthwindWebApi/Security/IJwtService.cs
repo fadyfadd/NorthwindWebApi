@@ -1,5 +1,6 @@
 using System.Security.Claims;
-using WebApiNorthwind.DataTransferObject;
+using NorthwindWebApi.DataTransferObject;
+
 
 namespace NorthwindWebApi.Security;
 

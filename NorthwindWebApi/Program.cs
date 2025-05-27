@@ -7,19 +7,21 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using NorthwindWebApi.Configuration;
 using NorthWindWebApi.DataAccessLayer;
+using NorthwindWebApi.Filters;
+using NorthwindWebApi.Mappers;
 using NorthwindWebApi.Middleware;
 using NorthwindWebApi.Security;
 using NorthwindWebApi.Services;
-using WebApiNorthwind.Mappers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var appConfig = builder.Configuration.GetSection("AppConfiguration").Get<AppConfiguration>();
 
-builder.Services.AddControllers().AddJsonOptions((options) =>
+builder.Services.AddControllers((options) =>
 {
-    //options.JsonSerializerOptions.Converters.Add(new LocalDateTimeConverter());
+    options.Filters.Add<ExecutionLoggingFilter>();
 });
+ 
 
 builder.Services.AddOpenApi();
 builder.Services.Configure<AppConfiguration>(builder.Configuration.GetSection("AppConfiguration"));
@@ -32,6 +34,7 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<SupplierService>();
 builder.Services.AddScoped<ExceptionMiddleware>();
+builder.Services.AddScoped<ExecutionLoggingFilter>();
 
 
 

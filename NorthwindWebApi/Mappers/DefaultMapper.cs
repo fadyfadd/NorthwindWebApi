@@ -1,10 +1,9 @@
 using AutoMapper;
 using NorthwindWebApi.DataAccessLayer;
-using NorthwindWebApi.DataTransferObject;
 using NorthWindWebApi.DataAccessLayer;
-using WebApiNorthwind.DataTransferObject;
-
-namespace WebApiNorthwind.Mappers;
+using NorthwindWebApi.DataTransferObject;
+ 
+namespace NorthwindWebApi.Mappers;
 
 public class DefaultMapper : Profile
 {

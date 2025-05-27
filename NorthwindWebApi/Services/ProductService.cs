@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+ 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using NorthwindWebApi.Configuration;
-using NorthwindWebApi.Security;
+ 
 using NorthWindWebApi.DataAccessLayer;
 using NorthwindWebApi.Exceptions;
-using WebApiNorthwind.DataTransferObject;
+using NorthwindWebApi.DataTransferObject;
 
 namespace NorthwindWebApi.Services
 {

@@ -1,5 +1,3 @@
-using WebApiNorthwind.DataTransferObject;
-
 namespace NorthwindWebApi.DataTransferObject;
 
 public class ErrorDto : BaseDto

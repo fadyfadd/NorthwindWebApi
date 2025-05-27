@@ -1,5 +1,5 @@
 ﻿using NorthWindWebApi.DataAccessLayer;
-using WebApiNorthwind.DataTransferObject;
+using NorthwindWebApi.DataTransferObject;
 
 namespace NorthwindWebApi.DataTransferObject
 {

@@ -5,8 +5,8 @@ using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using NorthwindWebApi.Configuration;
+using NorthwindWebApi.DataTransferObject;
 using NorthwindWebApi.Exceptions;
-using WebApiNorthwind.DataTransferObject;
 
 namespace NorthwindWebApi.Security;
 

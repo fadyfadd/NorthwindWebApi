@@ -1,13 +1,14 @@
 using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+ using Microsoft.AspNetCore.Mvc;
 using NorthwindWebApi.Services;
 using NorthWindWebApi.DataAccessLayer;
-using WebApiNorthwind.DataTransferObject;
+using NorthwindWebApi.DataTransferObject;
+using NorthwindWebApi.Filters;
 
 namespace NorthWindWebApi.Controllers;
 
 [ApiController]
+//[ServiceFilter(typeof(LoggingFilter))]
 [Route("[controller]")]
 public class ProductController : ControllerBase
 {

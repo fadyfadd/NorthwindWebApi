@@ -2,7 +2,7 @@ using NorthwindWebApi.DataAccessLayer;
 using NorthwindWebApi.DataTransferObject;
 using NorthWindWebApi.DataAccessLayer;
 
-namespace WebApiNorthwind.DataTransferObject;
+namespace NorthwindWebApi.DataTransferObject;
 
 public class ProductDto : BaseEntity {
     

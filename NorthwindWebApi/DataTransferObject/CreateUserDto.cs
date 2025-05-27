@@ -1,4 +1,4 @@
-namespace WebApiNorthwind.DataTransferObject;
+namespace NorthwindWebApi.DataTransferObject;
 
 public class CreateUserDto : BaseDto
 {

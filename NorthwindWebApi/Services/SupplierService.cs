@@ -6,8 +6,7 @@ using NorthwindWebApi.DataAccessLayer;
 using NorthWindWebApi.DataAccessLayer;
 using NorthwindWebApi.DataTransferObject;
 using NorthwindWebApi.Exceptions;
-using WebApiNorthwind.DataTransferObject;
-
+ 
 namespace NorthwindWebApi.Services;
 
 

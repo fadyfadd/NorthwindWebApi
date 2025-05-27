@@ -1,5 +1,3 @@
-using System.Drawing;
-
 namespace NorthwindWebApi.Exceptions;
 
 public class NorthwindWebApiException : Exception

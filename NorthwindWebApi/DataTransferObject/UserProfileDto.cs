@@ -1,6 +1,6 @@
 using NorthwindWebApi.Security;
 
-namespace WebApiNorthwind.DataTransferObject;
+namespace NorthwindWebApi.DataTransferObject;
 
 public class UserProfileDto : BaseDto
 {
