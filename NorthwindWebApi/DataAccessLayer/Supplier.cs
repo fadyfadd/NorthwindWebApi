@@ -2,7 +2,7 @@
 
 namespace NorthwindWebApi.DataAccessLayer
 {
-    public class Supplier
+    public class Supplier : BaseEntity
     {
         public Int32 SupplierId { set; get; }
         public String CompanyName { set; get; }

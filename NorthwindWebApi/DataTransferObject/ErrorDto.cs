@@ -1,6 +1,8 @@
+using WebApiNorthwind.DataTransferObject;
+
 namespace NorthwindWebApi.DataTransferObject;
 
-public class ErrorDto
+public class ErrorDto : BaseDto
 {
     public string ErrorMessage { get; set; }
     public Dictionary<string, string[]> Errors { get; set; }
