@@ -10,7 +10,7 @@ namespace NorthwindWebApi.DataAccessLayer.Configuration
         {
             builder.ToTable("suppliers");
             builder.HasKey(s => s.SupplierId);
-            builder.Property(s => s.SupplierId).HasColumnName("supplier_id");
+            builder.Property(s => s.SupplierId).HasColumnName("supplier_id").HasDefaultValueSql("nextval('\"product_sequence\"')");
             builder.Property(s => s.CompanyName).HasColumnName("company_name");
             builder.Property(s => s.ContactName).HasColumnName("contact_name");
             builder.Property(s => s.SupplierId).HasColumnName("supplier_id");

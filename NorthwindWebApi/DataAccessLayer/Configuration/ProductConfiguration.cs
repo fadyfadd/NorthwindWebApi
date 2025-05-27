@@ -10,7 +10,7 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
     {
         builder.ToTable("products");
         builder.HasKey(p => p.ProductId);
-        builder.Property((p => p.ProductId)).HasColumnName("product_id");
+        builder.Property((p => p.ProductId)).HasColumnName("product_id").HasDefaultValueSql("nextval('\"product_sequence\"')");
         builder.Property(p => p.ProductName).HasColumnName("product_name");
         builder.Property(p => p.SupplierId).HasColumnName("supplier_id");
         builder.Property(p => p.CategoryId).HasColumnName("category_id");

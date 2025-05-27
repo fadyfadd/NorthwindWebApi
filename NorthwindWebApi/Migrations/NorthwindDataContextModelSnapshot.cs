@@ -136,9 +136,8 @@ namespace NorthwindWebApi.Migrations
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasColumnName("product_id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ProductId"));
+                        .HasColumnName("product_id")
+                        .HasDefaultValueSql("nextval('\"product_sequence\"')");
 
                     b.Property<int?>("CategoryId")
                         .HasColumnType("integer")
@@ -190,9 +189,8 @@ namespace NorthwindWebApi.Migrations
                     b.Property<int>("SupplierId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasColumnName("supplier_id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("SupplierId"));
+                        .HasColumnName("supplier_id")
+                        .HasDefaultValueSql("nextval('\"product_sequence\"')");
 
                     b.Property<string>("Address")
                         .IsRequired()
