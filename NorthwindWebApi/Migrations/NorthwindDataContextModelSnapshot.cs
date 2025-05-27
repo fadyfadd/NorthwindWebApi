@@ -22,6 +22,12 @@ namespace NorthwindWebApi.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.HasSequence("product_sequence")
+                .StartsAt(100L);
+
+            modelBuilder.HasSequence("supplier_sequence")
+                .StartsAt(100L);
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.Property<int>("Id")

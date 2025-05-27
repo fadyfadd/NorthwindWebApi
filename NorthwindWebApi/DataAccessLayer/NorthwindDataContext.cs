@@ -22,6 +22,10 @@ public class NorthwindDataContext : IdentityDbContext<ApplicationUser , Applicat
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        
+        modelBuilder.HasSequence("product_sequence").StartsAt(100).IncrementsBy(1);
+        modelBuilder.HasSequence("supplier_sequence").StartsAt(100).IncrementsBy(1);
+        
         modelBuilder.ApplyConfiguration(new ProductConfiguration());
         modelBuilder.ApplyConfiguration(new SupplierConfiguration());
       
