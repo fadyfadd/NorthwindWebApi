@@ -4,6 +4,7 @@ using WebApiNorthwind.DataTransferObject;
 
 namespace NorthWindWebApi.Controllers;
 
+[ApiController]
 [Route("[controller]")]
 public class UserController : ControllerBase
 {

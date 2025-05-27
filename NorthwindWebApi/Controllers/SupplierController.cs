@@ -6,6 +6,7 @@ using NorthwindWebApi.Services;
 
 namespace NorthWindWebApi.Controllers;
 
+[ApiController]
 [Route("[controller]")]
 public class SupplierController : ControllerBase
 {
@@ -25,9 +26,9 @@ public class SupplierController : ControllerBase
     /// Get Supplier by Id
     /// </summary>
     [HttpGet("{id}")]
-    public async Task<ActionResult<SupplierDto>> GetSupplierByIdAsync(Int32 id , Boolean includeDetails = false)
+    public async Task<ActionResult<SupplierDto>> GetSupplierByIdAsync(Int32 id , Boolean includeProducts = false)
     {
-        var dto = _supplierService.GetSupplierById(id , includeDetails);
+        var dto = _supplierService.GetSupplierById(id , includeProducts);
         return Ok(dto);
     }
 
@@ -36,9 +37,9 @@ public class SupplierController : ControllerBase
     /// Get all Suppliers
     /// </summary>
     [HttpGet("All")]
-    public async Task<ActionResult<List<SupplierDto>>> GetSuppliersAsync()
+    public async Task<ActionResult<List<SupplierDto>>> GetSuppliersAsync(Boolean includeProducts = false)
     {      
-        var dtos = _supplierService.GetAllSuppliers();     
+        var dtos = _supplierService.GetAllSuppliers(includeProducts);     
         return Ok(dtos);
     }
     

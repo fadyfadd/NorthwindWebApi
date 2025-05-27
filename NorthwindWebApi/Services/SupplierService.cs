@@ -1,13 +1,16 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using NorthwindWebApi.Configuration;
 using NorthwindWebApi.DataAccessLayer;
 using NorthWindWebApi.DataAccessLayer;
 using NorthwindWebApi.DataTransferObject;
+using NorthwindWebApi.Exceptions;
 using WebApiNorthwind.DataTransferObject;
 
 namespace NorthwindWebApi.Services;
+
 
 public class SupplierService
 {
@@ -18,14 +21,15 @@ public class SupplierService
     List<ProductDto> GetProductsFromSupplier(Supplier supplier)
     {
         List<ProductDto> products = new List<ProductDto>();
-        
+
         foreach (var product in supplier.Products)
         {
             products.Add(_mapper.Map<ProductDto>(product));
         }
+
         return products;
     }
-    
+
     public SupplierService(NorthwindDataContext dataContext, IOptions<AppConfiguration> appConfig, IMapper mapper)
     {
         _dataContext = dataContext;
@@ -33,27 +37,57 @@ public class SupplierService
         _mapper = mapper;
     }
 
-    public SupplierDto GetSupplierById(Int32 id , Boolean includeProducts)
+    public SupplierDto GetSupplierById(Int32 id, Boolean includeProducts)
+    {
+        if (includeProducts)
+        { 
+            var supplier = _dataContext.Suppliers
+                .Include(s => s.Products)
+                .FirstOrDefault(s => s.SupplierId == id);
+
+            if (supplier == null)
+                throw new NorthwindWebApiException(ErrorMessages.SupplierNotFound, ErrorType.BusinessError.ToString());
+
+            var output = _mapper.Map<SupplierDto>(supplier);
+            output.Products = GetProductsFromSupplier(supplier);
+
+            return output;
+        }
+        else
+        {
+            var supplier =  _mapper.Map<SupplierDto>(_dataContext.Suppliers
+                .FirstOrDefault(s => s.SupplierId == id));
+            
+            if (supplier == null)
+                throw new NorthwindWebApiException(ErrorMessages.SupplierNotFound, ErrorType.BusinessError.ToString());
+            
+            return supplier;
+            
+        }
+
+
+    }
+
+    public List<SupplierDto> GetAllSuppliers(Boolean includeProducts)
     {
         if (includeProducts)
         {
-            var supplier = _dataContext.Suppliers.Include(s => s.Products)
-                .Where(s => s.SupplierId == id)
-                .FirstOrDefault();
-            
-            var output = _mapper.Map<SupplierDto>(supplier);
-            output.Products = GetProductsFromSupplier(supplier);
-            
-            return output;
-        }
-        
-        return _mapper.Map<SupplierDto>(_dataContext.Suppliers
-            .FirstOrDefault(s => s.SupplierId == id));
-    }
+            var suppliers = _dataContext.Suppliers.Include(s=>s.Products).ToList();
+            List<SupplierDto> supplierDtos = new List<SupplierDto>();
 
-    public List<SupplierDto> GetAllSuppliers()
-    {
-        var products = _dataContext.Suppliers.ToList();
-        return _mapper.Map<List<SupplierDto>>(products);
+            foreach (var supplier in suppliers)
+            {
+                var currentSupplier = _mapper.Map<SupplierDto>(supplier);
+                currentSupplier.Products = GetProductsFromSupplier(supplier);
+                supplierDtos.Add(currentSupplier);
+            }
+
+            return supplierDtos;
+        }
+        else
+        {
+            var suppliers = _dataContext.Suppliers.ToList();
+            return _mapper.Map<List<SupplierDto>>(suppliers);
+        }
     }
 }
