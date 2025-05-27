@@ -13,12 +13,11 @@ public class SupplierController : ControllerBase
     
     private readonly ILogger<SupplierController> _logger;
     private SupplierService _supplierService;
-    IMapper _mapper;
+ 
     
-    public SupplierController(ILogger<SupplierController> logger , NorthwindDataContext dataContext , IMapper mapper , SupplierService supplierService)
+    public SupplierController(ILogger<SupplierController> logger , NorthwindDataContext dataContex  , SupplierService supplierService)
     { 
         _logger = logger;
-        _mapper = mapper;
         _supplierService = supplierService;
     }
     

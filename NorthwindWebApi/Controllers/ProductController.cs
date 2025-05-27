@@ -16,12 +16,12 @@ public class ProductController : ControllerBase
  
     private readonly ILogger<ProductController> _logger;
     private ProductService _productService;
-    IMapper _mapper;
+
     
-    public ProductController(ILogger<ProductController> logger , NorthwindDataContext dataContext , IMapper mapper , ProductService productService)
+    public ProductController(ILogger<ProductController> logger , ProductService productService)
     { 
         _logger = logger;
-        _mapper = mapper;
+ 
         _productService = productService;
     }
     /// <summary>
