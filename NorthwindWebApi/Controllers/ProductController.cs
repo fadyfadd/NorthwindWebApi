@@ -23,6 +23,16 @@ public class ProductController : ControllerBase
         _mapper = mapper;
         _productService = productService;
     }
+    /// <summary>
+    /// Get Product by Id
+    /// </summary>
+    //[Authorize(Roles = "StandardUser")]   
+    [HttpGet("{id}")]
+    public async Task<ActionResult<ProductDto>> GetProductByIdAsync(Int32 id)
+    {
+        var dto = _productService.GetProductById(id);
+        return Ok(dto);
+    }
 
    
     /// <summary>

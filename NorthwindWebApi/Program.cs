@@ -30,7 +30,9 @@ builder.Services.AddDbContext<NorthwindDataContext>((dbBuilder) =>
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<SupplierService>();
 builder.Services.AddScoped<ExceptionMiddleware>();
+
 
 
 builder.Services.AddAutoMapper(typeof(DefaultMapper).Assembly);
