@@ -12,9 +12,9 @@ namespace NorthwindWebApi.DataTransferObject
         public String Address { set; get; }
         public String City { set; get; }
         public String? Region { set; get; }
-        public String? PostalCode { set; get; }
-        public String? Country { set; get; }
-        public String? Phone { set; get; }
+        public String  PostalCode { set; get; }
+        public String  Country { set; get; }
+        public String  Phone { set; get; }
         public String? Fax { set; get; }
         public String? HomePage { set; get; }
         public ICollection<ProductDto> Products { set; get; }

@@ -157,7 +157,7 @@ namespace NorthwindWebApi.Migrations
                         .HasColumnType("text")
                         .HasColumnName("quantity_per_unit");
 
-                    b.Property<int?>("ReorderLevel")
+                    b.Property<int>("ReorderLevel")
                         .HasColumnType("integer")
                         .HasColumnName("reorder_level");
 
@@ -165,15 +165,15 @@ namespace NorthwindWebApi.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("supplier_id");
 
-                    b.Property<double?>("UnitPrice")
+                    b.Property<double>("UnitPrice")
                         .HasColumnType("double precision")
                         .HasColumnName("unit_price");
 
-                    b.Property<int?>("UnitsInStock")
+                    b.Property<int>("UnitsInStock")
                         .HasColumnType("integer")
                         .HasColumnName("units_in_stock");
 
-                    b.Property<int?>("UnitsOnOrder")
+                    b.Property<int>("UnitsOnOrder")
                         .HasColumnType("integer")
                         .HasColumnName("units_on_order");
 
@@ -218,6 +218,7 @@ namespace NorthwindWebApi.Migrations
                         .HasColumnName("contact_title");
 
                     b.Property<string>("Country")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("country");
 
@@ -230,10 +231,12 @@ namespace NorthwindWebApi.Migrations
                         .HasColumnName("homepage");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("phone");
 
                     b.Property<string>("PostalCode")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("postal_code");
 
