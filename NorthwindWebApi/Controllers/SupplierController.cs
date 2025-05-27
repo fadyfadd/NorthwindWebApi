@@ -25,9 +25,9 @@ public class SupplierController : ControllerBase
     /// Get Supplier by Id
     /// </summary>
     [HttpGet("{id}")]
-    public async Task<ActionResult<SupplierDto>> GetSupplierByIdAsync(Int32 id)
+    public async Task<ActionResult<SupplierDto>> GetSupplierByIdAsync(Int32 id , Boolean includeDetails = false)
     {
-        var dto = _supplierService.GetSupplierById(id);
+        var dto = _supplierService.GetSupplierById(id , includeDetails);
         return Ok(dto);
     }
 
