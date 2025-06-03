@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Reflection.Metadata;
+using AutoMapper;
  
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -17,6 +18,38 @@ namespace NorthwindWebApi.Services
         private AppConfiguration _appConfig;
         private IMapper _mapper;
 
+
+        public ProductDto SaveOrUpdateProduct(ProductDto productDto)
+        {
+            if (productDto.ProductId <= 0)
+            {
+                var product = _mapper.Map<Product>(productDto);
+                product.ProductId = null; 
+                _dataContext.Products.Add(product);
+                _dataContext.SaveChanges();
+                return _mapper.Map<ProductDto>(product);
+            }
+            else
+            {
+                var product = _dataContext.Products.FirstOrDefault(p => p.ProductId == productDto.ProductId);
+                if (product == null)
+                {
+                    throw new NorthwindWebApiException(ErrorMessages.ProductNotFound , ErrorType.BusinessError.ToString());
+                }
+                else
+                {
+                    product.ProductName = productDto.ProductName;
+                    product.UnitPrice = productDto.UnitPrice;
+                    product.UnitsInStock = productDto.UnitsInStock;
+                    product.UnitsOnOrder = productDto.UnitsOnOrder;
+                    product.Discontinued = productDto.Discontinued;
+                    product.SupplierId = productDto.SupplierId;
+                    _dataContext.SaveChanges();
+                    return _mapper.Map<ProductDto>(product);
+                }
+            }
+        }
+        
         public ProductDto GetProductById(Int32 id)
         {
             var product =  _mapper.Map<ProductDto>(_dataContext.Products.Where(p => p.ProductId == id)

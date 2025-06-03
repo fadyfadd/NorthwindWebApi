@@ -36,7 +36,16 @@ public class ProductController : ControllerBase
         return Ok(dto);
     }
 
-   
+    /// <summary>
+    /// Save or Update Product
+    /// </summary>
+    [HttpPost("SaveOrUpdate")]
+    public async Task<ActionResult<ProductDto>> SaveProductAsync([FromBody] ProductDto productDto)
+    {
+        return  Ok(_productService.SaveOrUpdateProduct(productDto)); 
+    }
+    
+    
     /// <summary>
     /// Get all Products
     /// </summary>
