@@ -19,14 +19,14 @@ namespace NorthwindWebApi.Services
         private IMapper _mapper;
 
 
-        public ProductDto SaveOrUpdateProduct(ProductDto productDto)
+        public async Task<ProductDto> SaveOrUpdateProductAsync(ProductDto productDto)
         {
             if (productDto.ProductId <= 0)
             {
                 var product = _mapper.Map<Product>(productDto);
                 product.ProductId = null; 
                 _dataContext.Products.Add(product);
-                _dataContext.SaveChanges();
+                await _dataContext.SaveChangesAsync();
                 return _mapper.Map<ProductDto>(product);
             }
             else
@@ -44,7 +44,7 @@ namespace NorthwindWebApi.Services
                     product.UnitsOnOrder = productDto.UnitsOnOrder;
                     product.Discontinued = productDto.Discontinued;
                     product.SupplierId = productDto.SupplierId;
-                    _dataContext.SaveChanges();
+                    await _dataContext.SaveChangesAsync();
                     return _mapper.Map<ProductDto>(product);
                 }
             }
@@ -61,9 +61,9 @@ namespace NorthwindWebApi.Services
             return product; 
         }
 
-        public List<ProductDto> GetAllProducts()
+        public async Task<List<ProductDto>> GetAllProductsAsync()
         {
-            var products = _dataContext.Products.Include(p => p.Supplier).ToList();
+            var products =   _dataContext.Products.Include(p => p.Supplier).ToList();
             return _mapper.Map<List<ProductDto>>(products);
         }
 

@@ -22,7 +22,6 @@ public class ProductController : ControllerBase
     public ProductController(ILogger<ProductController> logger , ProductService productService)
     { 
         _logger = logger;
- 
         _productService = productService;
     }
     /// <summary>
@@ -42,7 +41,7 @@ public class ProductController : ControllerBase
     [HttpPost("SaveOrUpdate")]
     public async Task<ActionResult<ProductDto>> SaveProductAsync([FromBody] ProductDto productDto)
     {
-        return  Ok(_productService.SaveOrUpdateProduct(productDto)); 
+        return  Ok(await _productService.SaveOrUpdateProductAsync(productDto)); 
     }
     
     
@@ -53,7 +52,7 @@ public class ProductController : ControllerBase
     [HttpGet("All")]
     public async Task<ActionResult<List<ProductDto>>> GetProductsAsync()
     {      
-        var dtos = _productService.GetAllProducts();     
+        var dtos = _productService.GetAllProductsAsync();     
         return Ok(dtos);
     }
  
