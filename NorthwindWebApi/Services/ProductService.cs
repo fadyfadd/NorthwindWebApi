@@ -50,10 +50,10 @@ namespace NorthwindWebApi.Services
             }
         }
         
-        public ProductDto GetProductById(Int32 id)
+        public async Task<ProductDto> GetProductByIdAsync(Int32 id)
         {
-            var product =  _mapper.Map<ProductDto>(_dataContext.Products.Where(p => p.ProductId == id)
-                .Include((p) => p.Supplier).FirstOrDefault());
+            var product =  _mapper.Map<ProductDto>(await _dataContext.Products.Where(p => p.ProductId == id)
+                .Include((p) => p.Supplier).FirstOrDefaultAsync());
 
             if (product == null)
                 throw new NorthwindWebApiException(ErrorMessages.ProductNotFound, ErrorType.BusinessError.ToString());
