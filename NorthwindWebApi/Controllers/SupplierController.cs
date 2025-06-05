@@ -42,6 +42,4 @@ public class SupplierController : ControllerBase
         return Ok(dtos);
     }
     
-    
-    
 }

@@ -63,7 +63,7 @@ namespace NorthwindWebApi.Services
 
         public async Task<List<ProductDto>> GetAllProductsAsync()
         {
-            var products =   _dataContext.Products.Include(p => p.Supplier).ToList();
+            var products =   _dataContext.Products.Include(p => p.Supplier).OrderBy(p=>p.ProductId).ToList();
             return _mapper.Map<List<ProductDto>>(products);
         }
 

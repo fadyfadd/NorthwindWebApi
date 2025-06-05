@@ -16,6 +16,6 @@ public class Product : BaseEntity
     public Int32 UnitsOnOrder { set; get; }
     public Int32 ReorderLevel { set; get; }
     public Int32 Discontinued { set; get; }
-    public Supplier Supplier { set; get; }
+    public Supplier? Supplier { set; get; }
     
 }

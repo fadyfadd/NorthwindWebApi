@@ -1,4 +1,5 @@
-﻿using NorthWindWebApi.DataAccessLayer;
+﻿using System.Diagnostics.CodeAnalysis;
+using NorthWindWebApi.DataAccessLayer;
 
 namespace NorthwindWebApi.DataAccessLayer
 {
@@ -16,6 +17,6 @@ namespace NorthwindWebApi.DataAccessLayer
         public String Phone { set; get; }
         public String? Fax { set; get; }
         public String? HomePage { set; get; }
-        public ICollection<Product> Products { set; get; }
+        public ICollection<Product>? Products { set; get; }
     }
 }
